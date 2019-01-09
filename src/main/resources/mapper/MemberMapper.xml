@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--
+	 Mapper namespace : DAO의 path
+	 
+	 SQL Tags id : DAO의 Method Name
+	 		  resultType : DAO의 Return Type
+	 		  
+	 Member : myBatis-config.xml에 설정된 Alias(MemberDTO)
+ -->
+<mapper namespace="com.soldesk.chaekgabang.member.MemberMapper">
+
+<!-- 
+		Desc : admin 계정을 제외하고 모든 맴버를 MemberDTO형으로 넘김  
+		resultType MemberDTO 
+-->
+	<select id="getMemberList" resultType="Member">
+		SELECT * FROM member WHERE m_id != 'admin' ORDER BY m_id
+	</select>
+	
+<!-- 
+		Desc : admin 계정을 제외하고 찾으려는 맴버를 MemberDTO형으로 넘김  
+		resultType MemberDTO 
+ -->
+	<select id="getMember" resultType="Member">
+		SELECT * FROM member WHERE m_id != 'admin' AND m_id = #{param1}
+	</select>
+	
+<!-- 
+		Desc : MEMBER Table에서 MemberDTO의 M_ID를 기준으로 삭제 
+		Parameter #{m_id} : MemberDTO.m_id
+-->
+	<delete id="deleteMember" parameterType="Member">
+		DELETE FROM member WHERE m_id = #{m_id}
+	</delete>
+	
+<!-- 
+		Desc : MEMBER Table에서 MemberDTO의 M_ID와 M_PASSWORD를 기준으로 수정 
+		Parameter MemberDTO
+-->
+	<update id="updateMember" parameterType="Member">
+		UPDATE member SET m_email = #{m_email}, m_name = #{m_name}, m_age = #{m_age}, m_tel = #{m_tel} WHERE m_id = #{m_id} AND m_password = #{m_password}
+	</update>
+	
+<!-- 
+		Desc : MemberDTO 형태로 넘어온 값을 MEMBER Table에 Insert 
+		Parameter MemberDTO
+-->
+	<insert id="joinMember" parameterType="Member">
+		INSERT INTO MEMBER(M_ID, M_PASSWORD, M_EMAIL, M_NAME, M_AGE, M_TEL) VALUES(#{m_id}, #{m_password}, #{m_email}, #{m_name}, #{m_age}, #{m_tel})
+	</insert>
+	
+	<update id="updatePassword">
+		UPDATE member SET m_password = #{param1} WHERE m_id = #{param2} AND m_password = #{param3}
+	</update>
+	
+<!-- 
+		Desc : MEMBER Table에서 중복 여부 select
+		Parameter #{param1} : DAO에서 String값으로 넘어온 ID값  
+		resultType int type (중복 : 1, 비중복 : 0) 
+-->
+	<select id="idCheck" resultType="int">
+		SELECT COUNT(*) FROM MEMBER WHERE m_id = #{param1}
+	</select>
+	
+<!-- 
+		Desc : MEMBER Table에서 중복 여부 select
+		Parameter MemberDTO  
+		resultType int 형 (로그인 성공 : 1, 로그인 실패 : 0) 
+-->
+	<select id="loginCheck" parameterType="Member" resultType="int">
+		SELECT COUNT(*) FROM MEMBER WHERE m_id = #{m_id} and m_password = #{m_password}
+	</select>
+</mapper>

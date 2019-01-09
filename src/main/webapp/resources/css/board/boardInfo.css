@@ -1,0 +1,44 @@
+#chaekgabang_boardinfo_infolist {
+	display:inline-block;
+	list-style:none;
+	padding-left: 0px;
+	text-align:left;
+}
+
+#chaekgabang_boardinfo_infolist > li:first-of-type {
+	border-top: 2px solid black;
+}
+
+#chaekgabang_boardinfo_infolist > li {
+	padding: 6px 6px;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+}
+
+#chaekgabang_boardinfo_infolist > li > * {
+	display:inline-block;
+	vertical-align:top;
+}
+
+#chaekgabang_boardinfo_infolist > li > label {
+	min-width: 100px;
+}
+
+#chaekgabang_boardinfo_infolist > li:nth-of-type(3) {
+	height: 300px;
+	overflow-y:scroll;
+}
+
+#chaekgabang_boardinfo_infolist > li:last-of-type {
+	text-align:center;
+}
+
+#chaekgabang_boardinfo_contentcontainer {
+	width: 400px;
+}
+
+#chaekgabang_boardinfo_contentcontainer > img {
+	width: 200px;
+	height: auto;
+}

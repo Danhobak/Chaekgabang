@@ -1,0 +1,84 @@
+/* body {
+	margin:0px;
+	padding:0px;
+}
+
+ul {
+	list-style:none;
+	padding-left:0px;	
+} */
+
+#book_basket_list_table, #book_basket_list_table tr, #book_basket_list_table td, #book_basket_list_table th {
+	border: 1px ridge rgb(144, 223, 170);
+}
+
+#book_basket_list_table > thead {
+	background-color:rgb(144, 223, 170);
+	text-align:center;
+}
+
+#book_basket_list_content {
+	display:inline-block;
+}
+
+#book_basket_list_content > li {
+	padding: 5px 0px;
+}
+
+#book_basket_list_all_toggleselectbtn::after {
+	content: "전체 선택";
+}
+
+#book_basket_list_all_toggleselectbtn.checked::after {
+	content: "전체 선택 해제";
+}
+
+.book_basket_item_checkcontainer {
+	width: 50px;
+	/* border-right: 2px ridge rgb(144,223,170); */
+	text-align: center;
+}
+
+#book_basket_list_table > thead th:nth-of-type(1) {
+	min-width:40px;
+}
+
+#book_basket_list_table > thead th:nth-of-type(2) {
+	min-width:400px;
+}
+
+#book_basket_list_table > thead th:nth-of-type(3) {
+	min-width:100px;
+}
+
+.book_item > td:nth-of-type(1) {
+	text-align:center;
+}
+
+.book_item > td:nth-of-type(3) {
+	padding-left:10px;
+	text-align:left;
+}
+
+.book_item > td:nth-of-type(4) {
+	text-align:center;
+}
+
+#book_item_contents > li {
+	padding: 2px 0px;
+}
+
+#book_basket_list_pager {
+	text-align: center;
+}
+
+#book_basket_list_pager .pager_num {
+	color: black;
+	font-weight: normal;
+	padding: 0px 10px;
+}
+
+#book_basket_list_pager .pager_num.active {
+	color: rgb(144, 223, 170);
+	font-weight: bolder;
+}

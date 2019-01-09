@@ -1,0 +1,58 @@
+#chaekgabang_board_listtable tr, #chaekgabang_board_listtable td, #chaekgabang_board_listtable th {
+	border: 1px solid black;
+}
+
+#chaekgabang_board_listtable > thead td {
+	border: 0px;
+}
+
+#chaekgabang_board_listtable > thead th:nth-of-type(1) {
+	width: 60px;
+}
+
+#chaekgabang_board_listtable > thead th:nth-of-type(3) {
+	width: 100px;
+}
+
+#chaekgabang_board_listtable > thead th:nth-of-type(4) {
+	width: 150px;
+}
+
+#chaekgabang_board_listtable > thead th:nth-of-type(5) {
+	width: 50px;
+}
+#chaekgabang_board_listtable > tbody {
+	background-color:white;
+}
+
+#chaekgabang_board_title {
+	text-align:center;
+}
+
+#chaekgabang_board_btncontainer {
+	text-align:right;
+	padding:5px 20px 10px 0px;
+}
+
+#chaekgabang_board_listtable {
+	width:900px;
+	margin:0px auto;
+	text-align:center;
+}
+
+#chaekgabang_board_listtable > thead th {
+	background-color: #ccc;
+}
+
+#chaekgabang_board_listtable > thead > tr#chaekgabang_board_btncontainer {
+	text-align:right;
+	background-color:transparent;
+}
+
+#chaekgabang_board_listtable > thead > tr#chaekgabang_board_btncontainer > td{
+	background-color:transparent;
+}
+
+.bbs_list_item {
+	cursor: pointer;
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- MyBatis의 작동 규칙 정의 -->
+	<settings>
+		<setting name="cacheEnabled" value="false"/>
+		<setting name="useGeneratedKeys" value="true"/>
+		<!-- <setting name="mapUnderscoreToCamelCase" value="true"/> -->
+	</settings>
+	<typeAliases>
+		<typeAlias alias="Member" type="com.soldesk.chaekgabang.member.MemberDTO"/>
+		<typeAlias alias="Book" type="com.soldesk.chaekgabang.book.BookDTO"/>
+		<typeAlias alias="Review" type="com.soldesk.chaekgabang.book.ReviewDTO"/>
+		<typeAlias alias="Board" type="com.soldesk.chaekgabang.board.BoardDTO"/>
+	</typeAliases>
+	<!-- 
+		cacheEnabled: 각 mapper에 설정된 캐시를 전역적으로 사용할지 말지 여부
+		useGenerateKeys: 생성키에 대한 JDBC 지원을 허용, true로 설정하면 강제로 키를 생성
+		mapUnderscoreToCamelCase: 언더바(_)로 구분되는 데이터베이스 컬럼명과 (카멜 사인)낙타 표기 형식에 따른 자바 프로퍼티를 자동 매핑할지 여부 
+	 -->
+</configuration>

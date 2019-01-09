@@ -1,0 +1,93 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: RGB(238, 238, 238);
+}
+
+#loginBtn{
+	background-color: #555555; 
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#joinBtn{
+	background-color: #555555; 
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#headDiv{
+	text-align:center;
+	margin: 0;
+	width: 100%;
+	height: 100px;
+	background-color: RGB(16, 131, 136);
+}
+
+#headDiv h1 {
+	margin: 0;
+	line-height: 100px;
+	color: rgb(255, 235, 122);
+}
+
+#tdiv {
+	position:relative;
+	width: 537px;
+	height: 75px;
+	margin: 0 auto;
+	margin-top: 20px;
+	/* top: calc(50% - 40px); */
+}
+
+#tdiv ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 537px;
+	height: 75px;
+	clear: both;
+}
+
+#tdiv li>input[type="text"] {
+	position: relative;
+	top: -1px;
+}
+
+#tdiv .li2>input{
+	border: 0px;	
+	height : 20px;
+}
+
+#tdiv .li1 {
+	float: left;
+	width: 150px;
+	height: 23px;
+	margin-top: 20px;
+	background-color: RGB(34, 193, 126);
+	color : #ffffff;
+	text-indent: 20px;
+}
+
+#tdiv .li2 {
+	float: left;
+	width: 383px;
+	height: 23px;
+	margin-top: 20px;
+}
+
+#tdiv .li3 {
+	text-align: center;
+	float: left;
+	width: calc(100% - 2px);
+	height: 23px;
+	margin-top: 20px;
+}

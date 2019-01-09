@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- Mapper namespace : DAO의 path SQL Tags id : DAO의 Method Name resultType 
+	: DAO의 Return Type Book : myBatis-config.xml에 설정된 Alias(BookDTO) -->
+<mapper namespace="com.soldesk.chaekgabang.book.BookMapper">
+	<!-- MYBOOK Table -->
+
+	<!-- Desc : 특정 회원의 ID를 기준으로 책의 모든 정보를 select 하기 위해 Table MYBOOK과 BOOK을 Natural 
+		Join 후 Join된 Table의 m_id와 MEMBER Table의 m_id를 기준으로 select ResultType BoardDTO -->
+	<select id="getMyBookList" resultType="Book">
+		SELECT b_id, b_title,
+		b_image, b_author, b_price, b_discount, b_publisher, b_pubdate,
+		b_description, b_isbn
+		FROM mybook NATURAL JOIN book, member
+		WHERE mybook.m_id = member.m_id AND member.m_id = #{param1}
+	</select>
+
+	<!-- Desc : MYBOOK Table의 m_id, b_isbn을 기준으로 특정 row 삭제 parameter #{param1} 
+		: m_id #{param2} : b_isbn -->
+	<delete id="deleteMyBook">
+		DELETE FROM mybook WHERE m_id = #{param1} AND B_ISBN = #{param2}
+	</delete>
+
+	<!-- 
+		Desc : MYBOOK Table에 m_id, b_isbn을 기준으로 Table BOOK과 MEBER select 후 
+				Insert(mb_id : MYBOOK고유 id, Sequence로 부여)
+		parameter #{param1} : m_id
+				  #{param2} : b_isbn
+ 	-->	
+	<update id="addMyBook">
+		INSERT INTO mybook(mb_id, m_id, b_isbn)
+        	SELECT mybook_pk_seq.nextval, m_id, b_isbn 
+            FROM book, member 
+            WHERE m_id = #{param1} AND b_isbn = #{param2}
+	</update>
+	
+	<!-- 
+		Desc : MYBOOK Table에서 m_id와 b_isbn을 기준으로 중복 검사
+		resultType	int : (중복 : 1, 비중복 : 0)
+	-->
+	<select id="isExistMyBook" resultType="int">
+		SELECT COUNT(*) FROM
+		mybook WHERE m_id = #{param1} AND b_isbn = #{param2}
+	</select>
+
+	<!-- Desc : MYBOOK Table에서 m_id를 통해 특정 계정의 모든 MYBOOK의 Row를 카운트 resultType 
+		int : 찜한 책의 수 -->
+	<select id="getMyBookCount" resultType="int">
+		SELECT COUNT(*) FROM
+		member, book NATURAL JOIN mybook WHERE member.m_id = #{param1}
+	</select>
+
+	<!-- BOOK Table -->
+
+	<!-- Desc : BOOK Table에서 m_isbn을 통해 중복 검사 resultType int : (중복 : 1, 비중복 
+		: 0) -->
+	<select id="isExistBook" resultType="int">
+		SELECT COUNT(*) FROM book
+		WHERE b_isbn = #{param1}
+	</select>
+
+	<!-- Desc : BOOK Table에 NAVER API로 가져온 JSON객체의 값을 BookDTO를 통해 DB에 Insert 
+		parameterType BookDTO -->
+	<insert id="addBook" parameterType="Book">
+		INSERT INTO book(b_id,
+		b_title, b_image, b_author, b_price, b_discount, b_isbn, b_publisher,
+		b_pubdate, b_description)
+		VALUES(#{b_id}, #{b_title}, #{b_image}, #{b_author}, #{b_price}, #{b_discount},
+		#{b_isbn}, #{b_publisher}, #{b_pubdate}, #{b_description})
+	</insert>
+
+	<!-- Desc : 회원이 특정 도서를 찜할 경우, b_favcnt를 1씩 증가 parameter #{param1} : b_id -->
+	<update id="favcntUp">
+		UPDATE book SET b_favcnt = b_favcnt + 1 WHERE b_id =
+		#{param1}
+	</update>
+
+	<!-- Desc : main.jsp에 출력할 찜한 횟수가 가장 높은 상위 5개의 row select * SubQuery로 처리한 
+		이유 : order by와 where의 실행 순서 때문에 resultType BookDTO -->
+	<select id="getHotBooks" resultType="Book">
+		SELECT * FROM(SELECT * FROM book ORDER BY b_favcnt DESC) WHERE rownum <![CDATA[<=]]>
+		5
+	</select>													<!-- xml파일에서 부등호식 하려면 cdata로 감싸야함 -->
+
+
+	<!-- REVIEW Table -->
+
+	<!-- Desc : REVIEW Table에서 br_refbook(b_isbn)를 기준으로 select * 리뷰 리스트는 역순으로 
+		가져옴(최신이 맨 위) resultType int : (중복 : 1, 비중복 : 0) -->
+	<select id="getReviewList" resultType="Review">
+		SELECT * FROM book_review
+		WHERE br_refbook = #{param1} ORDER BY br_id DESC
+	</select>
+
+	<!-- Desc : REVIEW Table에 새로운 row insert * 리뷰 리스트는 역순으로 가져옴(최신이 맨 위) resultType 
+		int : (중복 : 1, 비중복 : 0) -->
+	<insert id="addReview" parameterType="Review">
+		INSERT INTO
+		book_review(br_id, br_title, br_refuser, br_refbook, br_content,
+		br_regdate)
+		VALUES(BOOK_REVIEW_SEQ.nextval, #{br_title}, #{br_refuser}, #{br_refbook}, #{br_content}, sysdate)
+	</insert>
+
+	<!-- Desc : REVIEW Table의 br_refuser, br_refbook을 기준으로 특정 row 삭제 parameter 
+		#{param1} : m_id #{param2} : b_isbn -->
+	<delete id="deleteReview">
+		DELETE FROM book_review WHERE br_refuser = #{param1}
+		AND br_refbook = #{param2}
+	</delete>
+
+	<!-- Desc : REVIEW Table의 br_refuser를 기준으로 br_title, br_content 수정 parameterType 
+		ReviewDTO -->
+	<update id="changeReview" parameterType="Review">
+		UPDATE book_review SET
+		br_content = #{br_content}, br_title=#{br_title} WHERE br_refuser =
+		#{br_refuser}
+	</update>
+
+	<!-- Desc : REVIEW Table의 br_refuser, br_refbook을 기준으로 중복 검사 resultType 
+		int : row의 수 (이미 존재하면 1 이상, 없으면 0) -->
+	<select id="reviewOk" resultType="int">
+		SELECT count(*) FROM
+		book_review WHERE br_refuser = #{br_refuser} AND br_refbook =
+		#{br_refbook}
+	</select>
+</mapper>

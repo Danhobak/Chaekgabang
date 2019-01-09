@@ -1,0 +1,12 @@
+table, tr, th, td {
+	border: 1px solid black;
+}
+
+th {
+	min-width: 100px;
+	background-color: #fa88ff;
+}
+
+#member_list_table {
+	display: inline-block;
+}

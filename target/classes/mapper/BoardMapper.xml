@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	 Mapper namespace : DAO의 path
+	 
+	 SQL Tags id : DAO의 Method Name
+	 		  resultType : DAO의 Return Type
+	 		  
+	 Board : myBatis-config.xml에 설정된 Alias(BoardDTO)
+ -->
+<mapper namespace="com.soldesk.chaekgabang.board.BoardMapper">
+<!-- 
+		Desc : BOARD Table에서 bd_id를 내림차순 기준으로 가져옴
+		resultType	BoardDTO 
+-->
+	<select id="getBoardList" resultType="Board">
+		SELECT * FROM board ORDER BY bd_id DESC
+	</select>
+	
+<!-- 
+		Desc : bd_id를 기준으로 하나의 boardDTO 객체 정보를 select
+		parameterType	int : bd_id	
+		resultType	BoardDTO 
+-->
+	<select id="getBoardInfo" resultType="Board" parameterType="int">
+		SELECT * FROM board WHERE bd_id = #{param1}
+	</select>
+
+<!-- 
+		Desc : BOARD Table에 글 작성 (bd_id는 sequence로, bd_regdate는 sysdate로 처리)
+		parameterType	BoardDTO 
+-->
+	<insert id="BoardWrite" parameterType="Board">
+		INSERT INTO board(bd_id, bd_title, m_id, bd_content, bd_regdate, bd_filePath) 
+			VALUES(BOARD_ID_SEQ.NEXTVAL, #{bd_title}, #{m_id}, #{bd_content}, sysdate , #{bd_filePath})
+	</insert>
+
+<!-- 
+		Desc : BOARD Table에서 m_id, bd_id를 기준으로 해당하는 row 수정(글제목, 글내용, 이미지)
+		parameterType BoardDTO 
+-->
+	<update id="BoardUpdate" parameterType="Board">
+		UPDATE board SET bd_title = #{bd_title}, bd_content = #{bd_content}, bd_filePath = #{bd_filePath}
+			WHERE bd_id = #{bd_id} AND m_id = #{m_id}
+	</update>
+
+<!-- 
+		Desc : BOARD Table에서 m_id, bd_id를 기준으로 해당하는 row 삭제
+		parameterType BoardDTO 
+-->
+	<delete id="BoardDelete" parameterType="Board">
+		DELETE FROM board WHERE bd_id = #{bd_id} AND m_id = #{m_id}
+	</delete>
+</mapper>

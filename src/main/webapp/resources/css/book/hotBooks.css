@@ -1,0 +1,57 @@
+body {
+	margin:0px;
+	padding:0px;
+}
+
+ul {
+	list-style:none;
+	padding-left:0px;	
+}
+
+#hot_bookList_content {
+	margin-top : 50px;
+	display:inline-block;
+}
+
+#hot_book_item_contents > li {
+	padding: 2px 0px;
+}
+
+.hot_book_item_img{
+	width : auto;
+	height : 200px;
+}
+.hot_book_top_five > span{
+	font-size: 20pt;
+	font-weight: bold;
+	color : rgb(58,59,80);
+	display: inline-block;
+	margin-bottom: 20px;
+	text-shadow: 1px 1px 1px gray;
+}
+.hot_book_item_title_value{
+	width: 250px;
+	display : inline-block;
+	font-size: 12pt;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.hot_book_item_title > a:link{
+	color : rgb(25,102,118);
+}
+.hot_book_item_title > a:visited{
+	color : rgb(25,102,118);
+}
+.hot_book_item_title > a:hover{
+	color : rgb(219, 10, 91);
+}
+.hot_book_item_title > a:active{
+	color : rgb(25,102,118);
+}
+.hot_book_item_title_rank{
+	font-size : 16pt;
+	font-weight: bold;
+	color : red;
+}

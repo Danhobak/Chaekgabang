@@ -1,0 +1,72 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: RGB(238, 238, 238);
+	text-align:center;
+}
+
+#update_pwtitle {
+	margin : 0;
+	line-height: 100px;
+	background-color: RGB(16, 131, 136); 
+	color: rgb(255, 235, 122);
+	height : 100px;
+}
+
+#chaekgabang_update_pw_inputform {
+	margin: 0px auto;
+}
+
+#chaekgabang_update_pw_inputlist {
+	display:inline-block;
+	padding: 0px;
+	list-style: none;
+	text-align: left;
+}
+
+#chaekgabang_update_pw_inputlist > li {
+	margin-top:20px;	
+}
+
+#chaekgabang_update_pw_inputlist > li > *:not(p){
+	display: inline-block;
+	vertical-align:middle;
+	border: 0px;
+}
+
+#chaekgabang_update_pw_inputlist > li:last-of-type {
+	text-align: center;
+}
+
+#chaekgabang_update_pw_inputlist > li > label {
+	display: inline-block;
+	width: 150px;
+	height: 21px;
+	background-color: RGB(34, 193, 126);
+	color : #ffffff;
+	text-indent: 20px;
+}
+
+#chaekgabang_update_pw_inputlist > li > input[type="text"], #chaekgabang_update_pw_inputlist > li > input[type="password"] {
+	position:relative;
+	width: 300px;
+	height: 21px;
+}
+
+#chaekgabang_update_pw_inputid {
+	background-color:#ddd;
+}
+
+.errMsg{
+	color:red;
+	font-size: 14px;
+}
+
+.update_PwPageBtns{
+	background-color: #555555; 
+    color: white;
+    min-width : 80px;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+}

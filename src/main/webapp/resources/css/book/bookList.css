@@ -1,0 +1,60 @@
+#chaekgabang_main_booklist > li.book_item > * {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#chaekgabang_main_booklist > li.book_item > *:not(:first-child) {
+	margin-left:20px;
+}
+.book_item{
+	color : #6E7783;
+}
+
+.book_item_checkcontainer {
+	width: 50px;
+	/* border-right: 2px solid rgb(144,223,170); */
+	text-align: center;
+}
+
+.book_item_check {
+	width: 20px;
+	height: 20px;
+}
+
+.book_item_img {
+	width: 80px;
+	height: auto;
+}
+
+.book_item_contents {
+	width: 900px;
+}
+
+.book_item_contents>li:not (:first-of-type ) {
+	margin-top: 2px;
+}
+
+.book_item_description {
+	width: 900px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	color : #6E7783;
+}
+
+.book_item_author_value {
+	display:inline-block;
+}
+
+.book_item_author_value.hidden {
+	display:none;
+}
+
+.book_item_compareprice {
+	display:inline-block;
+	width: 100px;
+	text-align: center;
+}
+
+.book_item_compareprice > li:not (:first-of-type) {
+	padding-top: 3px;
+}

@@ -1,0 +1,151 @@
+.under_line {
+	border-bottom: 2px ridge rgb(144, 223, 170);
+}
+
+#book_detail_maincontainer {
+	display: inline-block;
+	width: 950px;
+	text-align: left;
+}
+
+#book_detail_maincontainer > ul > li {
+	padding: 5px 0px;
+}
+
+#book_detail_maincontainer > ul > li:nth-of-type(2) > *{
+	display:inline-block;
+	vertical-align:top;
+}
+
+#book_detail_maincontainer > ul > li:nth-of-type(2) > #book_detail_bookimg {
+	width: 230px;
+	height: 300px;
+}
+
+#book_detail_maincontainer > ul > li:nth-of-type(2) > #book_detail_infolist {
+	width: 713px;
+}
+
+#book_detail_maincontainer > ul > li:nth-of-type(2) > #book_detail_infolist > li {
+	width:100%;
+	min-height: 44px;
+	
+}
+#book_detail_maincontainer > ul > li:nth-of-type(2) > #book_detail_infolist > li:not(:first-of-type) {
+	padding: 5px 0px 0px 0px;
+}
+
+#book_detail_info_basketbookbtn {
+	width: 160px;
+	height: 40px;
+}
+
+#book_detail_info_basketbooklistbtn {
+	width: 160px;
+	height: 40px;
+}
+
+#book_detail_info_price {
+	font-size:14px;
+	text-decoration: line-through;
+	color:gray;
+}
+
+#book_detail_info_discount {
+	font-size:16px;
+	color: red;
+}
+
+#book_detail_reviewcontent_container {
+	width: 706px;
+	border-bottom: 2px solid #ccc;
+	padding-bottom: 12px;
+}
+
+#book_detail_reviewcontent_container > li {
+	width: 100%;
+	padding-top: 6px;
+}
+
+#book_detail_reviewcontent {
+	display: inline-block;
+	width: 700px;
+	height: 100px;
+}
+
+#book_detail_review_container {
+	margin:14px 0px;
+}
+
+.review_item {
+	width: 682px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding:10px;
+	margin-bottom: 10px;
+}
+
+.review_item:last-of-type {
+	margin-bottom: 0px;	
+}
+
+.review_item_title {
+	display:block;
+	width: 650px;
+	margin-top: 0px;
+	padding-bottom: 5px;
+	/* border-bottom: 2px solid #ccc; */
+	border:0px solid #bbb;
+	font-size:18px;
+	font-weight:bold;
+}
+
+.review_item_title.active {
+	border-width:1px;
+}
+
+.review_item_content {
+	display:block;
+	width: 650px;
+	height: 70px;
+	overflow:scroll-y;
+	white-space: nowrap;
+	border:0px solid #bbb;
+	margin: 10px 0px;
+	font-size:14px;
+}
+
+.review_item_content.active {
+	border-width:1px;
+}
+
+.review_item_writeinfo {
+	height: 20px;
+	margin-bottom:0px;
+	padding-top: 5px;
+	border-top: 2px solid #ccc;
+}
+
+.review_item_writeinfo > div:nth-of-type(1) {
+	float:left;
+}
+
+.review_item_writeinfo > div:nth-of-type(2) {
+	float:right;
+}
+
+.review_item_modifybtn::after {
+	content:"수정";
+}
+
+.review_item_modifybtn.active::after {
+	content:"수정 완료";
+}
+
+.review_item_executebtn::after {
+	content:"삭제";
+}
+
+.review_item_executebtn.cancel::after {
+	content:"수정 취소";
+}

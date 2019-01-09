@@ -1,0 +1,187 @@
+body {
+	background-color: RGB(238, 238, 238);
+	min-width: 1220px;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+textarea {
+	resize: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* navigation bar */
+ul.navbar>li>a:link {
+	color: rgb(255, 235, 122);
+}
+
+ul.navbar>li>a:visited {
+	color: rgb(255, 235, 122);
+}
+
+ul.navbar>li>a:hover {
+	color: rgb(219, 10, 91);
+}
+
+ul.navbar>li>a:active {
+	color: rgb(255, 235, 122);
+}
+
+ul.navbar {
+	font-size: 0px;
+	background-color: RGB(16, 131, 136);
+	border-bottom: 2px solid rgb(51, 110, 123);
+}
+
+ul.navbar>li {
+	display: inline-block;
+	width: 200px;
+	line-height: 30px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	color: #FFFFFF;
+	border-right: 2px solid rgb(51, 110, 123);
+	text-shadow: 1px 1px 1px black;
+	vertical-align: middle;
+}
+
+header {
+	/* background-color:rgb(144,223,170); */
+	
+}
+
+/* title bar */
+#chaekgabang_main_maintitle {
+	text-shadow: 2px 2px 2px black;
+	color: rgb(255, 255, 255);
+	font-size: 30px;
+}
+
+#chaekgabang_main_subtitle {
+	text-shadow: 2px 2px 2px black;
+	color: orange;
+	font-size: 24px;
+	margin-top: -5px;
+}
+
+#chaekgabang_main_titleimg {
+	display: inline-block;
+	width: 500px;
+	height: auto;
+}
+
+#chaekgabang_main_title_txt {
+	font-family: 견고딕;
+	color: RGB(255, 255, 255);
+	font-size: 28pt;
+	text-shadow: 5px 5px 10px gray;
+	margin-right: 50px;
+}
+
+#chaekgabang_main_header_1 {
+	background-color: RGB(34, 193, 126);
+}
+
+#chaekgabang_main_header_1 * {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+#chaekgabang_main_imgcontainer {
+	margin-left: 50px;
+}
+
+#chaekgabang_main_img {
+	width: auto;
+	height: 70px;
+}
+
+#chaekgabang_book_search_input {
+	margin-left: 10px;
+	width: 400px;
+	height: 37px;
+	border: 0px;
+}
+
+#chaekgabang_book_search_btn {
+	background-color: #555555; 
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#chaekgabang_book_login_btn{
+	background-color: #555555; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#chaekgabang_book_management_btn {
+	background-color: #555555; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#book_all_toggleselectbtn::after {
+	content: "전체 선택";
+}
+
+#book_all_toggleselectbtn.checked::after {
+	content: "전체 선택 해제";
+}
+
+#chaekgabang_main_booklist_controller {
+	font-size: 12px;
+	line-height: 40px;
+	padding-left: 5px;
+}
+
+#chaekgabang_main_booklist>li {
+	padding: 10px 0px;
+	border-width: 2px 0px 0px 0px;
+	border-color: rgb(144, 223, 170);
+	border-style: solid;
+}
+
+#chaekgabang_main_booklist>li:last-of-type {
+	border-bottom-width: 2px;
+}
+
+.pager {
+	text-align: center;
+}
+
+.pager .pager_num {
+	color: black;
+	font-weight: normal;
+	padding: 0px 10px;
+}
+
+.pager .pager_num.active {
+	color: rgb(144, 223, 170);
+	font-weight: bolder;
+}
